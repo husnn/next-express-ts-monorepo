@@ -6,16 +6,16 @@
   },
   "references": [
     {
-      "path": "../shared"
+      "path": "../../packages/shared"
     },
     {
-      "path": "../logger"
+      "path": "../../packages/logger"
     },
     {
-      "path": "../core"
+      "path": "../../packages/core"
     },
     {
-      "path": "../postgres"
+      "path": "../../packages/postgres"
     }
   ],
   "include": ["src/**/*"],

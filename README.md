@@ -18,7 +18,7 @@ Future plans:
 - Node.js (v18+ recommended)
 - PostgreSQL. You can either:
     - Manually launch a local/remote instance of PostgreSQL.
-      - Then create a `.env` file inside `packages/api` and add your configuration.<br>
+      - Then create a `.env` file inside `apps/api` and add your configuration.<br>
       *e.g. `DATABASE_URL=postgres://user:password@host:5432/name`*
     - Install Docker and simply run the following command: `docker run -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d --restart unless-stopped postgres`.
 
@@ -37,10 +37,11 @@ With Docker
 ## Project structure
 
 - packages/
-  - api/ - Express.js app.
   - core/ - Models, interfaces and business logic. Depends only on the `shared` and `emails` package.
   - postgres/ - Database package containing Postgres-specific schemas and repositories.
   - shared/ - Helpers, DTOs, enums and types shared across backend/frontend. Cannot depend on any other package.
+- apps/
+  - api/ - Express.js app.
   - web/ - Next.js app.
 
 ### The _core_ package
