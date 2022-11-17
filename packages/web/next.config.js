@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     transpilePackages: ['@app/shared']
+  },
+  compiler: {
+    styledComponents: true
   }
 }
 
