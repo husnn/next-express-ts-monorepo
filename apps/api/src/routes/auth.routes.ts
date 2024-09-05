@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { body, check } from 'express-validator';
 
+import { isValidPassword } from '@starter/shared';
 import AuthController from '../controllers/AuthController';
 import authMiddleware from '../middleware/authMiddleware';
-import { isValidPassword } from '@app/shared';
 
 export default function init(authController: AuthController): Router {
   const router = Router();
@@ -19,7 +19,7 @@ export default function init(authController: AuthController): Router {
   router.post(
     '/login',
     check('email').isEmail().normalizeEmail(),
-    check('password').custom(isValidPassword),
+    body('password').custom(isValidPassword),
     (req: Request, res: Response, next: NextFunction) => {
       authController.login(req, res, next);
     }

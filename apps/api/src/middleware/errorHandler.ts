@@ -1,8 +1,8 @@
+import { Response, isDev } from '@starter/shared';
 import { Response as ExpressResponse, NextFunction, Request } from 'express';
 import { HttpError, HttpResponse } from '../http';
-import { Response, isDev } from '@app/shared';
 
-import logger from '@app/logger';
+import logger from '@starter/logger';
 
 export interface ErrorResponse extends Response {
   error: string;

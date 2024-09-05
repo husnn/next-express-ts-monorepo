@@ -1,7 +1,7 @@
 export class UserDTO {
   id: string;
 
-  constructor(data: Partial<UserDTO>) {
+  constructor(data: Partial<UserDTO> & { id: string }) {
     this.id = data.id;
   }
 }

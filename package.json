@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "starter",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,25 +7,27 @@
     "eslint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "build": "tsc --build tsconfig.build.json",
     "watch": "pnpm build --watch",
-    "core": "pnpm --filter @app/core",
-    "api": "pnpm --filter @app/api",
-    "web": "pnpm --filter @app/web",
-    "dev": "concurrently 'pnpm watch' 'pnpm web dev' 'pnpm api dev'"
+    "shared": "pnpm --filter @starter/shared",
+    "core": "pnpm --filter @starter/core",
+    "api": "pnpm --filter @starter/api",
+    "web": "pnpm --filter @starter/web",
+    "web-app": "pnpm --filter @starter/web-app",
+    "dev": "concurrently 'pnpm watch' 'pnpm web dev' 'pnpm api dev' 'pnpm web-app dev'"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.28.0",
-    "@typescript-eslint/parser": "^5.28.0",
-    "concurrently": "^7.2.1",
-    "eslint": "^8.17.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-import-resolver-node": "^0.3.6",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.2",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-import-resolver-node": "^0.3.7",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "^7.30.0",
-    "prettier": "^2.6.2",
-    "typescript": "^4.7.3"
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.6"
   }
 }

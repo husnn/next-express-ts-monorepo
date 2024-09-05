@@ -1,11 +1,11 @@
-import { AuthFailureReason, AuthService, WrappedError } from '@app/core';
-import { HttpError, HttpResponse, ValidationError } from '../http';
-import { LoginResponse, SignupResponse } from '@app/shared';
+import { AuthFailureReason, AuthService, WrappedError } from '@starter/core';
+import { LoginResponse, SignupResponse } from '@starter/shared';
 import { NextFunction, Request, Response } from 'express';
+import { HttpError, HttpResponse, ValidationError } from '../http';
 
-import config from '../config';
-import logger from '@app/logger';
+import logger from '@starter/logger';
 import { validationResult } from 'express-validator';
+import config from '../config';
 
 class AuthController {
   private authService: AuthService;
@@ -67,7 +67,7 @@ class AuthController {
         switch (result.reason) {
           case AuthFailureReason.USER_NOT_FOUND:
           case AuthFailureReason.INCORRECT_PASSWORD:
-            throw new HttpError('Incorrect email or password.', 403);
+            throw new HttpError('Incorrect email or password.', 404);
         }
 
         throw new WrappedError(result.error, 'Could not login.');

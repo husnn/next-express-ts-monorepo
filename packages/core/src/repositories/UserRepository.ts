@@ -1,5 +1,5 @@
-import Repository from './Repository';
 import { User } from '../entities';
+import Repository from './Repository';
 
 export interface UserRepository extends Repository<User> {
   findByEmail(

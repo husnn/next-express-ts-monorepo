@@ -1,7 +1,7 @@
-import { UserRepository as IUserRepository, User } from '@app/core';
+import { UserRepository as IUserRepository, User } from '@starter/core';
 
-import Repository from './Repository';
 import UserSchema from '../schemas/UserSchema';
+import Repository from './Repository';
 
 export class UserRepository
   extends Repository<User>

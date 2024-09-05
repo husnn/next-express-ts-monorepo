@@ -1,0 +1,25 @@
+<mj-wrapper>
+  <mj-raw>{{#if footnote}}</mj-raw>
+  <mj-section
+    background-color="#eee"
+    padding="10px 0"
+    border-radius="5px 5px 0 0"
+  >
+    <mj-column>
+      <mj-text mj-class="footer-text" color="grey"> {{footnote}} </mj-text>
+    </mj-column>
+  </mj-section>
+  <mj-raw>{{/if}}</mj-raw>
+
+  <mj-raw>{{#if footer}}</mj-raw>
+  <mj-section
+    background-color="#fafafa"
+    padding="20px 0"
+    border-radius="0 0 15px 15px"
+  >
+    <mj-column>
+      <mj-text mj-class="footer-text"> {{footer}} </mj-text>
+    </mj-column>
+  </mj-section>
+  <mj-raw>{{/if}}</mj-raw>
+</mj-wrapper>

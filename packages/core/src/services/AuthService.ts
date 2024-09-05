@@ -1,9 +1,9 @@
-import { AuthFailureReason } from './errors';
-import { CurrentUserDTO } from '@app/shared';
+import { CurrentUserDTO } from '@starter/shared';
 import { Result } from '../base';
 import { User } from '../entities';
 import { UserRepository } from '../repositories';
 import { generateUserId } from '../utils';
+import { AuthFailureReason } from './errors';
 
 export class AuthService {
   private userRepository: UserRepository;
@@ -18,7 +18,7 @@ export class AuthService {
     ip: string
   ): Promise<Result<CurrentUserDTO>> {
     try {
-      const existing = await this.userRepository.findByEmail(email);
+      let existing = await this.userRepository.findByEmail(email);
       if (existing)
         return Result.fail(null, AuthFailureReason.EMAIL_ALREADY_EXISTS);
 
@@ -26,7 +26,8 @@ export class AuthService {
         id: await generateUserId()(),
         email,
         lastLogin: new Date(),
-        lastLoginIP: ip
+        lastLoginIP: ip,
+        dateCreated: new Date(),
       });
 
       user.password = await User.hashPassword(password);

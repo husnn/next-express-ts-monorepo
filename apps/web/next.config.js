@@ -1,13 +1,20 @@
+const { WEB_APP_URL } = process.env;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  experimental: {
-    transpilePackages: ['@app/shared']
-  },
-  compiler: {
-    styledComponents: true
+  transpilePackages: ['@starter/shared'],
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: `/:path*`
+      },
+      {
+        source: '/app',
+        destination: `${WEB_APP_URL}`
+      }
+    ];
   }
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

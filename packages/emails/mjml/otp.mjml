@@ -1,0 +1,31 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./snippets/globals.mjml"></mj-include>
+  </mj-head>
+  <mj-body>
+    <mj-include path="./snippets/top.mjml"></mj-include>
+    <mj-section>
+      <mj-column>
+        <mj-text mj-class="heading"
+          >{{#if title}}{{title}}{{else}}Your one-time passcode
+          🔑{{/if}}</mj-text
+        >
+        <mj-text mj-class="text-body"
+          >Use this code to {{intent}} within the next {{validity}}.</mj-text
+        >
+
+        <mj-spacer height="10px"></mj-spacer>
+
+        <mj-text mj-class="heading">{{code}}</mj-text>
+
+        <mj-spacer height="10px"></mj-spacer>
+
+        <mj-text mj-class="text-body"
+          >Please do not share this code with anyone.</mj-text
+        >
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="./snippets/footer.mjml"></mj-include>
+  </mj-body>
+</mjml>

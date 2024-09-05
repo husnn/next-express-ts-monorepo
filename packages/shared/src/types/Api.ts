@@ -37,6 +37,7 @@ export interface LoginRequest extends Request {
     password: string;
   };
 }
+
 export interface LoginResponse extends Response {
   user: CurrentUserDTO;
   expiry: number;
@@ -45,4 +46,13 @@ export interface LoginResponse extends Response {
 export interface SignoutRequest extends Request {
   method: 'POST';
 }
+
 export interface SignoutResponse extends Response {}
+
+export interface GetUserInfoRequest extends Request {
+  method: 'GET';
+}
+
+export interface GetUserInfoResponse extends Response {
+  user: CurrentUserDTO;
+}

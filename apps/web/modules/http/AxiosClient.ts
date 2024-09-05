@@ -1,4 +1,4 @@
-import { Request, Response } from '@app/shared';
+import { Request, Response } from '@starter/shared';
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
 
 import HttpClient from './HttpClient';

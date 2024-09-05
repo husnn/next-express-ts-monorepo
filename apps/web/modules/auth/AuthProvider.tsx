@@ -7,7 +7,7 @@ import {
   shouldUnauthenticate
 } from './utils';
 
-import { CurrentUserDTO } from '@app/shared';
+import { CurrentUserDTO } from '@starter/shared';
 import { useRouter } from 'next/router';
 
 type AuthContextProps = {

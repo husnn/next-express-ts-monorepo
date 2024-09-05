@@ -14,7 +14,6 @@ coverage
 .tmp
 _docpress
 
-lib
 dist
 tsconfig.tsbuildinfo
 

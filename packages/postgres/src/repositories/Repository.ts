@@ -1,7 +1,7 @@
 import { EntitySchema, In, Repository as PostgresRepository } from 'typeorm';
 
-import { ID } from '@app/shared';
-import { Repository as IRepository } from '@app/core';
+import { Repository as IRepository } from '@starter/core';
+import { ID } from '@starter/shared';
 import { dataSource } from '..';
 
 export abstract class Repository<T extends { id: ID }>
@@ -21,11 +21,21 @@ export abstract class Repository<T extends { id: ID }>
     return this.db.findBy({ id: In(ids) });
   }
 
+  find(query: Partial<T>): Promise<T[]> {
+    return this.db.findBy(query);
+  }
+
+  findOne(query: Partial<T>): Promise<T> {
+    return this.db.findOneBy(query);
+  }
+
   create(item: Partial<T>): Promise<T> {
     return this.db.save(item);
   }
 
-  update(item: Partial<T> & { id: ID }): Promise<T> {
+  update(
+    item: (Partial<T> & { id: ID }) | Array<Partial<T> & { id: ID }>
+  ): Promise<T> {
     return this.db.save(item);
   }
 

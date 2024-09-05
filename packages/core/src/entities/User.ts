@@ -2,14 +2,12 @@ import bcrypt from 'bcryptjs';
 
 export class User {
   id: string;
-  dateCreated: Date;
   email: string;
   password: string;
-  firstName?: string;
-  lastName?: string;
+  name?: string;
   lastLogin?: Date;
   lastLoginIP?: string;
-  preferences?: object;
+  dateCreated: Date;
 
   constructor(data: Partial<User>) {
     Object.assign(this, data);

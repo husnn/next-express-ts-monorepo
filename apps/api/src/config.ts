@@ -4,7 +4,8 @@ const config = {
     host: process.env.HOST || '0.0.0.0',
     port: parseInt(process.env.PORT || '5000'),
     clientUrl: process.env.CLIENT_URL || 'http://localhost:3000',
-    isSecure: process.env.HTTP_PROTOCOL === 'https'
+    isSecure: process.env.HTTP_PROTOCOL === 'https',
+    publicUrl: process.env.PUBLIC_URL
   },
   auth: {
     secret: process.env.AUTH_SECRET || 's3creTi5siM0',
@@ -16,7 +17,7 @@ const config = {
   },
   redis: {
     url: process.env.REDIS_URL || 'redis://localhost:6379'
-  }
+  },
 };
 
 export default config;

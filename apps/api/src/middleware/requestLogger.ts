@@ -1,5 +1,5 @@
+import logger, { getContext, setCtxMetadata } from '@starter/logger';
 import { NextFunction, Request, Response } from 'express';
-import logger, { getContext, setCtxMetadata } from '@app/logger';
 
 import { nanoid } from 'nanoid';
 

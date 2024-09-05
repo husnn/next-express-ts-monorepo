@@ -5,4 +5,4 @@ export const getExpiryDate = (expiresInSeconds = 600): Date => {
 };
 
 export const isExpired = (date: Date | string): boolean =>
-  date && new Date(date) < new Date();
+  !!date && new Date(date) < new Date();

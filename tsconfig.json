@@ -2,10 +2,10 @@
   "compilerOptions": {
     "baseUrl": "./packages",
     "paths": {
-      "@app/shared": ["./shared/src"],
-      "@app/logger": ["./logger/src"],
-      "@app/core": ["./core/src"],
-      "@app/postgres": ["./postgres/src"]
+      "@starter/shared": ["./shared/src"],
+      "@starter/logger": ["./logger/src"],
+      "@starter/core": ["./core/src"],
+      "@starter/postgres": ["./postgres/src"]
     }
   }
 }

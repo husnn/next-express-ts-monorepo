@@ -1,5 +1,5 @@
+import { User } from '@starter/core';
 import { EntitySchema } from 'typeorm';
-import { User } from '@app/core';
 
 const UserSchema = new EntitySchema<User>({
   name: 'users',
@@ -7,11 +7,6 @@ const UserSchema = new EntitySchema<User>({
     id: {
       type: 'text',
       primary: true
-    },
-    dateCreated: {
-      type: 'timestamp',
-      name: 'date_created',
-      createDate: true
     },
     email: {
       type: 'text',
@@ -23,18 +18,13 @@ const UserSchema = new EntitySchema<User>({
       name: 'password',
       select: false
     },
-    firstName: {
+    name: {
       type: 'text',
-      name: 'first_name',
-      nullable: true
-    },
-    lastName: {
-      type: 'text',
-      name: 'last_name',
+      name: 'name',
       nullable: true
     },
     lastLogin: {
-      type: 'timestamp',
+      type: 'timestamptz',
       name: 'last_login',
       nullable: true
     },
@@ -43,10 +33,10 @@ const UserSchema = new EntitySchema<User>({
       name: 'last_login_ip',
       nullable: true
     },
-    preferences: {
-      type: 'simple-json',
-      nullable: true
-    }
+    dateCreated: {
+      type: 'timestamptz',
+      name: 'date_created'
+    },
   }
 });
 

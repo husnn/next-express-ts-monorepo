@@ -13,7 +13,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 COPY pnpm-lock.yaml ./
-RUN pnpm fetch --prod
+RUN pnpm fetch
 
 ADD . ./
 RUN pnpm install -r

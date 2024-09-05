@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 
+import { isProd } from '@starter/shared';
 import { DataSource } from 'typeorm';
-import { PostgresConfig } from './types';
 import { defaultConfig } from './config';
 import entitySchemas from './schemas';
-import { isProd } from '@app/shared';
+import { PostgresConfig } from './types';
 
 export let dataSource: DataSource;
 
@@ -42,3 +42,4 @@ export default { setup, init };
 
 export * from './repositories';
 export * from './types';
+

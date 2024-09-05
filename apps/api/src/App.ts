@@ -1,17 +1,23 @@
-import express, { Application, Router } from 'express';
+import express, {
+  Application,
+  Router
+} from 'express';
 
-import AuthController from './controllers/AuthController';
-import { AuthService } from '@app/core';
-import { RedisClientType } from 'redis';
-import { UserRepository } from '@app/postgres';
-import { authCookieName } from '@app/shared';
-import config from './config';
+import { AuthService, UserService } from '@starter/core';
+import logger from '@starter/logger';
+import {
+  UserRepository
+} from '@starter/postgres';
+import { authCookieName } from '@starter/shared';
 import cors from 'cors';
-import errorHandler from './middleware/errorHandler';
-import initRoutes from './routes';
-import logger from '@app/logger';
-import requestLogger from './middleware/requestLogger';
 import session from 'express-session';
+import { RedisClientType } from 'redis';
+import config from './config';
+import AuthController from './controllers/AuthController';
+import UserController from './controllers/UserController';
+import errorHandler from './middleware/errorHandler';
+import requestLogger from './middleware/requestLogger';
+import initRoutes from './routes';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const connectRedis = require('connect-redis')(session);
@@ -24,11 +30,19 @@ class App {
   constructor(redis?: RedisClientType) {
     const app: Application = express();
 
+    const userRepository = new UserRepository();
+
+    const authService = new AuthService(userRepository);
+    const userService = new UserService(userRepository);
+
+    const authController = new AuthController(authService);
+    const userController = new UserController(userService);
+
     app.set('trust proxy', true);
 
     app.use(
       cors({
-        origin: config.app.clientUrl,
+        origin: new URL(config.app.clientUrl).origin,
         credentials: true,
         maxAge: 86400
       })
@@ -72,14 +86,12 @@ class App {
 
     app.use(requestLogger);
 
-    const userRepository = new UserRepository();
-
-    const authService = new AuthService(userRepository);
-
-    const authController = new AuthController(authService);
-
     const router = Router();
-    initRoutes(router, authController);
+    initRoutes(
+      router,
+      authController,
+      userController
+    );
 
     app.use('/v1', router);
 

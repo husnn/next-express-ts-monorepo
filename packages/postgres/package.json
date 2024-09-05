@@ -1,5 +1,5 @@
 {
-  "name": "@app/postgres",
+  "name": "@starter/postgres",
   "main": "dist/index.js",
   "version": "0.0.1",
   "private": true,
@@ -13,12 +13,11 @@
   "devDependencies": {
     "@types/node": "^17.0.42",
     "dotenv": "^16.0.1",
-    "typescript": "^4.7.3"
+    "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@app/core": "workspace:^0.0.1",
-    "@app/shared": "workspace:^0.0.1",
-    "nanoid": "^4.0.0",
+    "@starter/core": "workspace:^0.0.1",
+    "@starter/shared": "workspace:^0.0.1",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.6"
